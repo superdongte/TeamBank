@@ -9,4 +9,5 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
     //테스트입니다 심예은
+    //테스트입니다 류재현
 }
