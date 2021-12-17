@@ -8,5 +8,5 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
     }
-    //
+    //테스트입니다 심예은
 }
