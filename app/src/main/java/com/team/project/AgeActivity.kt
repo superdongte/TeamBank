@@ -10,7 +10,7 @@ import android.widget.GridView
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
-
+//준영 테스트
 class AgeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
