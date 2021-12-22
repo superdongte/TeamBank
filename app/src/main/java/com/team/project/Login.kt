@@ -1,4 +1,4 @@
-package com.team.Project
+package com.team.project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

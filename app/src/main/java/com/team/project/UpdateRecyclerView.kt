@@ -1,4 +1,4 @@
-package com.team.Project
+package com.team.project
 
 import java.util.ArrayList
 

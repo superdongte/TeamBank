@@ -1,4 +1,4 @@
-package com.team.Project
+package com.team.project
 
 import android.annotation.SuppressLint
 import android.app.Activity
