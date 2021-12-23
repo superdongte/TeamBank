@@ -6,7 +6,7 @@
     app:behavior_peekHeight="100dp"
     android:background="@drawable/top_radius_white_background"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
+<!-- TODO: 제목 바꾸기 지도에서 끌어올릴 수 있는 페이지-->
     <View
         android:layout_marginTop="12dp"
         android:background="#cccccc"

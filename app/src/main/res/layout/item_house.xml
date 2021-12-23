@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
+<!-- TODO: 제목을 Bank로 바꿀 것-->
     <ImageView
         android:id="@+id/thumbnailImageView"
         android:layout_width="0dp"

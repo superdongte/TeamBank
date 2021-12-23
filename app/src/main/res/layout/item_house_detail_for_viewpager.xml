@@ -9,7 +9,7 @@
     android:background="@color/white"
     app:cardCornerRadius="16dp"
     tools:layout_height="100dp">
-
+<!-- TODO: 제목을 Bank로 바꿀 것-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
