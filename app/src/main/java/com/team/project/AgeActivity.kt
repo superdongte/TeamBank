@@ -22,6 +22,12 @@ class AgeActivity : AppCompatActivity() {
         //리스트뷰에 Adapter 설정
         gridview.adapter = adapter
 
+        var test = intent.getStringExtra("gender")
+//        if (intent.hasExtra("gender")){
+//            test
+//        }
+        test?.let { Log.i("test", it) }
+
         //Adapter 안에 아이템의 정보 담기
 //        adapter!!.addItem(ageList("10대 이하"))
 //        adapter!!.addItem(ageList("20대"))
