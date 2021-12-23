@@ -18,13 +18,12 @@
                 android:textSize="30sp"
                 android:fontFamily="@font/katuri"/>
         </LinearLayout>
-        <GridView
-            android:id="@+id/gridView1"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ageRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:numColumns="3">
-        </GridView>
+            android:gravity="center">
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 </layout>
