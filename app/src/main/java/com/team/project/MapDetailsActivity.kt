@@ -104,7 +104,7 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
 
         getBankListFromAPI()
     }
-
+//TODO: 이부분에서 localhost:8090 이걸 놓고 BankService 인터페이스에 주소 뒷부분을 넣으면 됩니다.
     private fun getBankListFromAPI() {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://run.mocky.io")
