@@ -19,12 +19,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
             <TextView
                 android:id="@+id/itemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1,500,000"
+                android:textColor="#ffff0000"
+                android:textSize="20sp"
+                android:fontFamily="@font/katuri">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/installText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원 기준, "
                 android:textSize="20sp"
                 android:fontFamily="@font/katuri">
 
@@ -35,22 +49,73 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="노트북"
+                android:textColor="#ffff0000"
+                android:textSize="25sp"
+                android:fontFamily="@font/katuri">
+
+            </TextView>
+            <TextView
+                android:id="@+id/installText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="을 위한"
                 android:textSize="20sp"
                 android:fontFamily="@font/katuri">
 
             </TextView>
         </LinearLayout>
 
-
-        <TextView
-            android:id="@+id/installment"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4.3%"
-            android:textSize="20sp"
-            android:fontFamily="@font/katuri">
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
 
-        </TextView>
+            <TextView
+                android:id="@+id/installText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최고"
+                android:textSize="25sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/katuri">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/installText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 금리는 "
+                android:textSize="20sp"
+                android:fontFamily="@font/katuri">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/installment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.3%"
+                android:textColor="#ffff0000"
+                android:textSize="20sp"
+                android:fontFamily="@font/katuri">
+            </TextView>
+
+            <TextView
+                android:id="@+id/installText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="입니다."
+                android:textSize="20sp"
+                android:fontFamily="@font/katuri">
+
+            </TextView>
+
+
+        </LinearLayout>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
