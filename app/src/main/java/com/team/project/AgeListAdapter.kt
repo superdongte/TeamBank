@@ -1,4 +1,4 @@
 package com.team.project
 
-class AgeAdapter (
-)
+class AgeListAdapter {
+}
