@@ -21,7 +21,8 @@ class AgeActivity : AppCompatActivity() {
         Log.d("MyTag","AgeActivity oncreate()")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_age)
 
-
+        var temp = intent.getStringExtra("gender")
+        temp?.let{Log.i("MyTag", it)}
         binding.age1.setOnClickListener(View.OnClickListener {
             Log.d("MyTag","click age1")
 
@@ -31,39 +32,38 @@ class AgeActivity : AppCompatActivity() {
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //            var gender = "F"
 //            intent.putExtra("gender",gender)
-
-//            Toast.makeText(applicationContext,gender,Toast.LENGTH_SHORT).show()
+            var genage = temp + "01"
+            intent.putExtra("genage",genage)
+            Toast.makeText(applicationContext,genage,Toast.LENGTH_SHORT).show()
             startActivity(intent)
         })
 
         binding.age2.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, ChooseGoodsActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            var genage = temp + "02"
+            intent.putExtra("genage",genage)
+            Toast.makeText(applicationContext,genage,Toast.LENGTH_SHORT).show()
             startActivity(intent)
         })
         binding.age3.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, ChooseGoodsActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            var genage = temp + "03"
+            intent.putExtra("genage",genage)
+            Toast.makeText(applicationContext,genage,Toast.LENGTH_SHORT).show()
             startActivity(intent)
         })
         binding.age4.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, ChooseGoodsActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            var genage = temp + "04"
+            intent.putExtra("genage",genage)
+            Toast.makeText(applicationContext,genage,Toast.LENGTH_SHORT).show()
             startActivity(intent)
         })
         binding.age5.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, ChooseGoodsActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        })
-        binding.age6.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, ChooseGoodsActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        })
-        binding.age7.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, ChooseGoodsActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            var genage = temp + "05"
+            intent.putExtra("genage",genage)
+            Toast.makeText(applicationContext,genage,Toast.LENGTH_SHORT).show()
             startActivity(intent)
         })
 

@@ -27,53 +27,35 @@
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:columnCount="3"
-        android:layout_gravity="center">
+        app:columnCount="2">
         <ImageView
             android:id="@+id/age1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/age_10"/>
         <ImageView
             android:id="@+id/age2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/age_20"/>
         <ImageView
             android:id="@+id/age3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/age_30"/>
         <ImageView
             android:id="@+id/age4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/age_40"/>
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/age_40" />
         <ImageView
             android:id="@+id/age5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/age_50"/>
-        <ImageView
-            android:id="@+id/age6"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/age_60"/>
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/age_50_2"/>
 
 
     </androidx.gridlayout.widget.GridLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/age7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/age_70">
-
-            </ImageView>
-        </LinearLayout>
     </LinearLayout>
 </layout>
 
