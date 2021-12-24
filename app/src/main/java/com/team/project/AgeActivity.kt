@@ -35,32 +35,32 @@ class AgeActivity : AppCompatActivity() {
         })
 
         binding.age2.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
+            val intent = Intent(this, ChooseGoodsActivity::class.java)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
         binding.age3.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
+            val intent = Intent(this, ChooseGoodsActivity::class.java)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
         binding.age4.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
+            val intent = Intent(this, ChooseGoodsActivity::class.java)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
         binding.age5.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
+            val intent = Intent(this, ChooseGoodsActivity::class.java)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
         binding.age6.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
+            val intent = Intent(this, ChooseGoodsActivity::class.java)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
         binding.age7.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
+            val intent = Intent(this, ChooseGoodsActivity::class.java)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         })
