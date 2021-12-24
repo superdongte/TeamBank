@@ -21,7 +21,8 @@ class AgeActivity : AppCompatActivity() {
         Log.d("MyTag","AgeActivity oncreate()")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_age)
 
-       binding.age1.setOnClickListener(View.OnClickListener {
+
+        binding.age1.setOnClickListener(View.OnClickListener {
             Log.d("MyTag","click age1")
 
             //TODO:다음 액티비티로 넘겨주는 부분(완료)
@@ -30,8 +31,9 @@ class AgeActivity : AppCompatActivity() {
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //            var gender = "F"
 //            intent.putExtra("gender",gender)
-            startActivity(intent)
+
 //            Toast.makeText(applicationContext,gender,Toast.LENGTH_SHORT).show()
+            startActivity(intent)
         })
 
         binding.age2.setOnClickListener(View.OnClickListener {
@@ -67,5 +69,8 @@ class AgeActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
 
 }
