@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        tools:context=".AgeActivity"
         android:gravity="center">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/choose_age"
-                android:textAlignment="center"
-                android:paddingVertical="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="당신의 연령을 선택해주세요!"
-                android:textSize="30sp"
-                android:fontFamily="@font/katuri"/>
-        </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/ageRecyclerView"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:textSize="30sp"
+            android:text="연령을 선택해주세요"
+            android:fontFamily="@font/katuri"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="50dp"/>
+    </LinearLayout>
 
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:columnCount="3"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/age1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/age_10"/>
+        <ImageView
+            android:id="@+id/age2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/age_20"/>
+        <ImageView
+            android:id="@+id/age3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/age_30"/>
+        <ImageView
+            android:id="@+id/age4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/age_40"/>
+        <ImageView
+            android:id="@+id/age5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/age_50"/>
+        <ImageView
+            android:id="@+id/age6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/age_60"/>
+
+
+    </androidx.gridlayout.widget.GridLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/age_70">
+
+            </ImageView>
+        </LinearLayout>
     </LinearLayout>
 </layout>
+
