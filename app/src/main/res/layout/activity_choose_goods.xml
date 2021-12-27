@@ -26,17 +26,47 @@
             android:orientation="horizontal"
             android:gravity="center">
             <ImageView
+                android:id="@+id/goodsPic1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/woman"/>
             <ImageView
+                android:id="@+id/goodsPic2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/woman"/>
             <ImageView
+                android:id="@+id/goodsPic3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/woman"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/goodsText1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="테스트"
+                android:gravity="center">
+            </TextView>
+            <TextView
+                android:id="@+id/goodsText2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="테스트"
+                android:gravity="center">
+            </TextView>
+            <TextView
+                android:id="@+id/goodsText3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="테스트"
+                android:gravity="center">
+            </TextView>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
