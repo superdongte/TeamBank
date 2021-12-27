@@ -7,40 +7,63 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.team.project.databinding.ActivityGenderBinding
+import com.team.project.databinding.ActivityGenderandageBinding
 
 
 class GenderActivity : AppCompatActivity() {
 
     //databinding 초기화
-    private lateinit var binding : ActivityGenderBinding
+    private lateinit var binding : ActivityGenderandageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gender)
+        setContentView(R.layout.activity_genderandage)
         Log.d("test","oncreate()")
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_gender)
-
+        title="적금 추천 시스템"
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_genderandage)
+        val intent = Intent(this, ChooseGoodsActivity::class.java)
+        var gender:String = "gender"
+        var age:String = "age"
         binding.woman.setOnClickListener(View.OnClickListener {
-            Log.d("test2","click gender")
-            val intent = Intent(this, AgeActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            var gender = "F"
-            intent.putExtra("gender",gender)
-            startActivity(intent)
-            Toast.makeText(applicationContext,gender,Toast.LENGTH_SHORT).show()
+            gender = "F"
+            binding.woman.setAlpha(255)
+            binding.man.setAlpha(55)
         })
 
         binding.man.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AgeActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            var gender = "M"
-            intent.putExtra("gender",gender)
-            startActivity(intent)
-            Toast.makeText(applicationContext,gender,Toast.LENGTH_SHORT).show()
+            gender = "M"
+            binding.man.setAlpha(255)
+            binding.woman.setAlpha(55)
         })
-
+        binding.age1.setOnClickListener(View.OnClickListener {
+            age = "01"
+            intent.putExtra("genage",gender+age)
+            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        })
+        binding.age2.setOnClickListener(View.OnClickListener {
+            age = "02"
+            intent.putExtra("genage",gender+age)
+            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        })
+        binding.age3.setOnClickListener(View.OnClickListener {
+            age = "03"
+            intent.putExtra("genage",gender+age)
+            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        })
+        binding.age4.setOnClickListener(View.OnClickListener {
+            age = "04"
+            intent.putExtra("genage",gender+age)
+            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        })
+        binding.age5.setOnClickListener(View.OnClickListener {
+            age = "05"
+            intent.putExtra("genage",gender+age)
+            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        })
     }
-
-
 }
