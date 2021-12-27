@@ -52,6 +52,9 @@ class ChooseGoodsActivity : AppCompatActivity() {
                     Log.d(TAG,"response : ${response.code()}")
                     Log.d(TAG,"response : ${response.raw().request().url().url()}")
                     //무슨 url로 api call 을 보냈는지
+                    response.body()?.let { dto ->
+                        recyclerAdapter.submitList(dto.items)
+                    }
                 }
 
             })}.run()
