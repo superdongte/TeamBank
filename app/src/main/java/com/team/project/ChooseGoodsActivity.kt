@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
 import com.team.project.databinding.ActivityChooseGoodsBinding
@@ -33,7 +33,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_choose_goods)
 
         recyclerView.adapter =recyclerAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this,3)
 
         var temp = intent.getStringExtra("genage")
         temp?.let{Log.i("MyTag", it)}
@@ -79,11 +79,11 @@ class ChooseGoodsActivity : AppCompatActivity() {
     object RetrofitClient{
         private var instance : Retrofit? = null
         private val gson = GsonBuilder().setLenient().create()
-
+//TODO:IPv4를 자기껄로해요 http://127.x.x.x:8083//
         fun getInstance() : Retrofit{
             if(instance == null){
                 instance = Retrofit.Builder()
-                    .baseUrl("https://run.mocky.io/")
+                    .baseUrl("http://10.0.2.2:8083/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
             }
