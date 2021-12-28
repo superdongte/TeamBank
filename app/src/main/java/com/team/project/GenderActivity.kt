@@ -18,12 +18,12 @@ class GenderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genderandage)
-        Log.d("test","oncreate()")
-        title="적금 추천 시스템"
+        Log.d("test", "oncreate()")
+        title = "적금 추천 시스템"
         binding = DataBindingUtil.setContentView(this, R.layout.activity_genderandage)
         val intent = Intent(this, ChooseGoodsActivity::class.java)
-        var gender:String = "gender"
-        var age:String = "age"
+        var gender: String = "gender"
+        var age: String = "age"
         binding.woman.setOnClickListener(View.OnClickListener {
             gender = "F"
             binding.woman.setAlpha(255)
@@ -36,34 +36,54 @@ class GenderActivity : AppCompatActivity() {
             binding.woman.setAlpha(55)
         })
         binding.age1.setOnClickListener(View.OnClickListener {
-            age = "01"
-            intent.putExtra("genage",gender+age)
-            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
-            startActivity(intent)
+            if(gender == "gender"){
+                Toast.makeText(applicationContext,"성별을 선택해주세요",Toast.LENGTH_SHORT).show()
+            }else {
+                age = "01"
+                intent.putExtra("genage", gender + age)
+                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
         })
         binding.age2.setOnClickListener(View.OnClickListener {
-            age = "02"
-            intent.putExtra("genage",gender+age)
-            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
-            startActivity(intent)
+            if(gender == "gender"){
+                Toast.makeText(applicationContext,"성별을 선택해주세요",Toast.LENGTH_SHORT).show()
+            }else {
+                age = "02"
+                intent.putExtra("genage", gender + age)
+                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
         })
         binding.age3.setOnClickListener(View.OnClickListener {
-            age = "03"
-            intent.putExtra("genage",gender+age)
-            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
-            startActivity(intent)
+            if(gender == "gender"){
+                Toast.makeText(applicationContext,"성별을 선택해주세요",Toast.LENGTH_SHORT).show()
+            }else {
+                age = "03"
+                intent.putExtra("genage", gender + age)
+                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
         })
         binding.age4.setOnClickListener(View.OnClickListener {
-            age = "04"
-            intent.putExtra("genage",gender+age)
-            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
-            startActivity(intent)
+            if(gender == "gender"){
+                Toast.makeText(applicationContext,"성별을 선택해주세요",Toast.LENGTH_SHORT).show()
+            }else {
+                age = "04"
+                intent.putExtra("genage", gender + age)
+                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
         })
         binding.age5.setOnClickListener(View.OnClickListener {
-            age = "05"
-            intent.putExtra("genage",gender+age)
-            Toast.makeText(applicationContext,gender+age,Toast.LENGTH_SHORT).show()
-            startActivity(intent)
+            if(gender == "gender"){
+                Toast.makeText(applicationContext,"성별을 선택해주세요",Toast.LENGTH_SHORT).show()
+            }else {
+                age = "05"
+                intent.putExtra("genage", gender + age)
+                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
         })
     }
 }
