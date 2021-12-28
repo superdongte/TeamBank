@@ -35,12 +35,14 @@ class ChooseGoodsActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this,3)
 
         var temp = intent.getStringExtra("genage")
+//        var tointent = Intent(this,GoodsService::class.java)
+//        tointent.putExtra("icode",temp)
         temp?.let{Log.i("MyTag", it)}
 
         retrofit = RetrofitClient.getInstance()
         myApi = retrofit.create(GoodsService::class.java)
         Runnable {
-            myApi.getGoodsList().enqueue(object : Callback<GoodsDto> {
+            myApi.getGoodsList(temp).enqueue(object : Callback<GoodsDto> {
                 override fun onFailure(call: Call<GoodsDto>, t: Throwable) {
                     Log.d(TAG,t.message!!)
                 }
@@ -77,7 +79,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
     }//End of onCreate
     object RetrofitClient{
         private var instance : Retrofit? = null
-        //private val gson = GsonBuilder().setLenient().create()
+//        private val gson = GsonBuilder().setLenient().create()
 //TODO:IPv4를 자기껄로해요 http://127.x.x.x:8083//
         fun getInstance() : Retrofit{
             if(instance == null){
