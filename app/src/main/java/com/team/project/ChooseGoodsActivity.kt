@@ -9,7 +9,6 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.GsonBuilder
 import com.team.project.databinding.ActivityChooseGoodsBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,7 +77,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
     }//End of onCreate
     object RetrofitClient{
         private var instance : Retrofit? = null
-        private val gson = GsonBuilder().setLenient().create()
+        //private val gson = GsonBuilder().setLenient().create()
 //TODO:IPv4를 자기껄로해요 http://127.x.x.x:8083//
         fun getInstance() : Retrofit{
             if(instance == null){
