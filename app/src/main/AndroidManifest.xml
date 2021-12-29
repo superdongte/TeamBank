@@ -40,6 +40,9 @@
             android:name=".InstallmentActivity"
             android:exported="false" />
         <activity
+            android:name=".CategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".GenderActivity"
             android:exported="true">
             <intent-filter>
@@ -51,12 +54,6 @@
         <activity
             android:name=".AgeActivity"
             android:exported="false">
-<!--             <intent-filter>-->
-<!--             <action android:name="android.intent.action.MAIN" />-->
-
-
-<!--             <category android:name="android.intent.category.LAUNCHER" />-->
-<!--             </intent-filter>-->
         </activity>
 
     </application>

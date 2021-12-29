@@ -21,7 +21,7 @@ class GenderActivity : AppCompatActivity() {
         Log.d("test", "oncreate()")
         title = "적금 추천 시스템"
         binding = DataBindingUtil.setContentView(this, R.layout.activity_genderandage)
-        val intent = Intent(this, ChooseGoodsActivity::class.java)
+        val intent = Intent(this, CategoryActivity::class.java)
         var gender: String = "gender"
         var age: String = "age"
         binding.woman.setOnClickListener(View.OnClickListener {

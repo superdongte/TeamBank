@@ -34,9 +34,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
         recyclerView.adapter =recyclerAdapter
         recyclerView.layoutManager = GridLayoutManager(this,3)
 
-        var temp = intent.getStringExtra("genage")
-//        var tointent = Intent(this,GoodsService::class.java)
-//        tointent.putExtra("icode",temp)
+        var temp = intent.getStringExtra("person")
         temp?.let{Log.i("MyTag", it)}
 
         retrofit = RetrofitClient.getInstance()
