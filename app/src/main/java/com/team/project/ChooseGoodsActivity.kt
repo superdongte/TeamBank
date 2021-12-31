@@ -78,7 +78,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
     object RetrofitClient{
         private var instance : Retrofit? = null
 //        private val gson = GsonBuilder().setLenient().create()
-//TODO:IPv4를 자기껄로해요 http://127.x.x.x:8083//
+//TODO:http://10.0.2.2:8083
         fun getInstance() : Retrofit{
             if(instance == null){
                 instance = Retrofit.Builder()
