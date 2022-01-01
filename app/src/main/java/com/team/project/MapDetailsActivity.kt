@@ -201,7 +201,8 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
         }
 
         var list = viewPagerAdapter.currentList
-        for (i: Int in 0..list.size){
+        var size = list.size - 1
+        for (i: Int in 0..size){
             if (list[i] == closeBank) {
                 viewPager.currentItem = i
                 break

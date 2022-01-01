@@ -1,39 +1,39 @@
 package com.team.project
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
-import com.team.project.databinding.ActivityInstallmentBinding
+import com.team.project.databinding.ActivityDepositBinding
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class InstallmentActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityInstallmentBinding
+class DepositActivity : AppCompatActivity(){
+    private lateinit var binding : ActivityDepositBinding
 
 
     private val recyclerView: RecyclerView by lazy{
-        findViewById(R.id.InstallmentList)
+        findViewById(R.id.installmentList)
     }
 
     private val recyclerAdapter = InstallmentAdapter()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_installment)
+        setContentView(R.layout.activity_deposit)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_installment)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_deposit)
 
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        val titleView = findViewById<TextView>(R.id.depositname)
+        var type = intent.getStringExtra("type")
+        titleView.text = type
 
 //        binding.cardview.setOnClickListener(View.OnClickListener {
 //            Log.d("MyTag","click textView1")
