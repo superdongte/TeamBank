@@ -1,4 +1,4 @@
 package com.team.project
 
 data class InstallmentDto (
-    val inslists: List<InstallmentModel>)
+    val insitem: List<InstallmentModel>)

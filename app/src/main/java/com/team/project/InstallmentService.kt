@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface InstallmentService {
     //TODO: ${}이런 방식으로 바꾸기
-    @GET("v3/8e8a3c32-2f30-4f02-83e2-084e845bada6")
+    @GET("v3/09028eb5-c707-4031-b60d-3b53fce7afda")
     fun getInstallmentList(): Call<InstallmentDto>
 }

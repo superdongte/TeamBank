@@ -6,26 +6,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 //TODO: 주의할 사항은 import할 때 ListAdapter 리사이클러뷰
-class GoodsListAdapter : androidx.recyclerview.widget.ListAdapter<GoodsModel,GoodsListAdapter.ItemViewHolder>(differ){
+class GoodsListAdapter(val itemClicked: (GoodsModel) -> Unit) : androidx.recyclerview.widget.ListAdapter<GoodsModel,GoodsListAdapter.ItemViewHolder>(differ){
 
     inner class ItemViewHolder(val view:View) : RecyclerView.ViewHolder(view){
+        var goodsPrice: Int = 0
+
+
         fun bind(goodsModel: GoodsModel){
             //val goodsName = view.findViewById<TextView>(R.id.item_goodst1)
-            val goodsImage =view.findViewById<ImageView>(R.id.iv1)
-
+            val goodsPicture = view.findViewById<ImageView>(R.id.goodsPic1)
+            val goodsImage = view.findViewById<ImageView>(R.id.iv1)
+            goodsPrice = goodsModel.itemprice
             //goodsName.text = goodsModel.itemname
             Glide
                 .with(goodsImage.context)
                 .load(goodsModel.image)
                 .transform(CenterCrop(), RoundedCorners(dpToPx(goodsImage.context,12)))
                 .into(goodsImage)
+            view.setOnClickListener{
+                itemClicked(goodsModel)
+            }
         }
     }
 

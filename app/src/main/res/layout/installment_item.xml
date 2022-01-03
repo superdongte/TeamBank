@@ -12,7 +12,6 @@
     >
 
     <LinearLayout
-
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,8 +35,17 @@
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="3px"
-            android:background="#000000"
-            />
+            android:background="#000000"/>
+
+        <TextView
+            android:id="@+id/bankkind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/katuri"
+            android:text="부산은행"
+            android:textSize="11sp"
+            android:layout_gravity="right"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,9 +68,19 @@
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
                 android:fontFamily="@font/katuri"
-                android:text="1.8%"
+                android:text="1.8"
                 android:textSize="11sp"
                 android:textColor="#000000"/>
+            <TextView
+                android:layout_marginBottom="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/katuri"
+                android:text="%"
+                android:textSize="11sp"
+                android:textColor="#000000"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,13 +99,20 @@
                 android:textSize="11sp"
                 android:textColor="@android:color/darker_gray"/>
             <TextView
-
                 android:id="@+id/primevalue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
                 android:fontFamily="@font/katuri"
-                android:text="1.8%"
+                android:text="1.8"
+                android:textSize="11sp"
+                android:textColor="#000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/katuri"
+                android:text="%"
                 android:textSize="11sp"
                 android:textColor="#000000"/>
         </LinearLayout>
@@ -106,7 +131,7 @@
                 android:fontFamily="@font/katuri"
                 android:textSize="11sp"
                 android:textColor="@android:color/darker_gray"
-                android:text="기본금리 "
+                android:text="가입기간"
                 />
 
             <TextView
@@ -114,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="12개월"
+                android:text="12"
                 android:fontFamily="@font/katuri"
                 android:textSize="13sp"
                 android:textColor="#000000"
@@ -123,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text=" 간 "
+                android:text="개월"
                 android:fontFamily="@font/katuri"
                 android:textSize="13sp"
                 android:textColor="#000000"
@@ -141,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="월 "
+                android:text="월 약 "
                 android:fontFamily="@font/katuri"
                 android:textSize="13sp"
                 android:textColor="#000000"

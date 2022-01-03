@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +24,10 @@ class ChooseGoodsActivity : AppCompatActivity() {
     private val recyclerView:RecyclerView by lazy{
         findViewById(R.id.goodsRecyclerView)
     }
-    private val recyclerAdapter = GoodsListAdapter()
+    private val recyclerAdapter = GoodsListAdapter(itemClicked = {
+        val intent = Intent(this, InstallmentActivity::class.java)
+        startActivity(intent)
+    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,20 +61,26 @@ class ChooseGoodsActivity : AppCompatActivity() {
                 }
 
             })}.run()
-
         binding.goodsPic1.setOnClickListener(View.OnClickListener {
             Log.d("MyTag", "click goodsPic1")
             val intent = Intent(this, InstallmentActivity::class.java)
+            Toast.makeText(applicationContext,binding.goodsPic1.tag.toString(),Toast.LENGTH_LONG).show()
+            intent.putExtra("price", binding.goodsPic1.tag.toString())
+            intent.putExtra("name", "UHD TV")
             startActivity(intent)
         })
         binding.goodsPic2.setOnClickListener(View.OnClickListener {
             Log.d("MyTag", "click goodsPic1")
             val intent = Intent(this, InstallmentActivity::class.java)
+            intent.putExtra("price", "5000000")
+            intent.putExtra("name", "여행가기")
             startActivity(intent)
         })
         binding.goodsPic3.setOnClickListener(View.OnClickListener {
             Log.d("MyTag", "click goodsPic1")
             val intent = Intent(this, InstallmentActivity::class.java)
+            intent.putExtra("price", "3000000")
+            intent.putExtra("name", "맥북pro")
             startActivity(intent)
         })
 

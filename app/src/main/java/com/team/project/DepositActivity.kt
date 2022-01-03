@@ -1,11 +1,14 @@
 package com.team.project
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.team.project.databinding.ActivityDepositBinding
 import org.w3c.dom.Text
 import retrofit2.Call
@@ -22,7 +25,10 @@ class DepositActivity : AppCompatActivity(){
         findViewById(R.id.installmentList)
     }
 
-    private val recyclerAdapter = InstallmentAdapter()
+    private val recyclerAdapter = InstallmentAdapter(itemClicked = {
+        val intent = Intent(this, MapDetailsActivity::class.java)
+        startActivity(intent)
+    })
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deposit)
@@ -34,6 +40,8 @@ class DepositActivity : AppCompatActivity(){
         val titleView = findViewById<TextView>(R.id.depositname)
         var type = intent.getStringExtra("type")
         titleView.text = type
+        var imageView = findViewById<ImageView>(R.id.gifimage1)
+        Glide.with(this).load(R.raw.gif1).into(imageView);
 
 //        binding.cardview.setOnClickListener(View.OnClickListener {
 //            Log.d("MyTag","click textView1")
@@ -57,7 +65,7 @@ class DepositActivity : AppCompatActivity(){
                             return
                         }
                         response.body()?.let { dto ->
-                            recyclerAdapter.submitList(dto.inslists)
+                            recyclerAdapter.submitList(dto.insitem)
                         }
                     }
                     override fun onFailure(call: Call<InstallmentDto>, t: Throwable) {
