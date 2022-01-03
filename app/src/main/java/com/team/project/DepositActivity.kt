@@ -43,16 +43,11 @@ class DepositActivity : AppCompatActivity(){
         var imageView = findViewById<ImageView>(R.id.gifimage1)
         Glide.with(this).load(R.raw.gif1).into(imageView);
 
-//        binding.cardview.setOnClickListener(View.OnClickListener {
-//            Log.d("MyTag","click textView1")
-//            val intent = Intent(this, MapDetailsActivity::class.java)
-//            startActivity(intent)
-//        })
         getFromAPI()
     }
     private fun getFromAPI() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://run.mocky.io")
+            .baseUrl("http://10.0.2.2:8083/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

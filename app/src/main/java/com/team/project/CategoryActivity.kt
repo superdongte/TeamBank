@@ -16,14 +16,6 @@ class CategoryActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_category)
         var person = intent.getStringExtra("genage")
 
-        binding.shortinstall.setOnClickListener(View.OnClickListener {
-            val deposit:String ="단기적금상품을 선택해주세요"
-            val intent = Intent(this, DepositActivity::class.java)
-            intent.putExtra("type",deposit)
-            Toast.makeText(applicationContext,deposit,Toast.LENGTH_SHORT).show()
-            startActivity(intent)
-        })
-
         binding.longinstall.setOnClickListener(View.OnClickListener {
             val deposit:String ="장기예금상품을 선택해주세요"
             val intent = Intent(this, DepositActivity::class.java)

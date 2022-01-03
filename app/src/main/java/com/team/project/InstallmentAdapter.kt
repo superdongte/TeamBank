@@ -28,10 +28,9 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            periodvalueText.text = installmentModel.dmonth.toString()
            bankNameText.text = installmentModel.bankname
 
-           var itemPrice = 4000000
            var month = installmentModel.dmonth
            var rate = installmentModel.baserate
-           var money = (itemPrice / (month+(month*rate))).toInt()
+           var money = (installmentModel.itemPrice / (month+(month*rate))).toInt()
            moneyText.text = money.toString()
 
            view.setOnClickListener{

@@ -26,6 +26,8 @@ class ChooseGoodsActivity : AppCompatActivity() {
     }
     private val recyclerAdapter = GoodsListAdapter(itemClicked = {
         val intent = Intent(this, InstallmentActivity::class.java)
+        Toast.makeText(applicationContext, it.itemprice.toString(), Toast.LENGTH_LONG).show()
+        intent.putExtra("price", it.itemprice.toString())
         startActivity(intent)
     })
 

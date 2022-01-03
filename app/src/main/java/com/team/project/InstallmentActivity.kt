@@ -20,6 +20,7 @@ class InstallmentActivity : AppCompatActivity() {
     private lateinit var binding : ActivityInstallmentBinding
     private lateinit var retrofit: Retrofit
     lateinit var myApi : InstallmentService
+    var itemPrice: Int = 0
 
     private val recyclerView: RecyclerView by lazy{
         findViewById(R.id.InstallmentList)
@@ -37,36 +38,20 @@ class InstallmentActivity : AppCompatActivity() {
 
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-//        retrofit = RetrofitClient.getInstance()
-//        myApi = retrofit.create(InstallmentService::class.java)
-        getFromAPI()
-        var itemprice = intent.getStringExtra("price")
+
+        itemPrice = intent.getStringExtra("price")?.toInt()!!
         var itemName = intent.getStringExtra("name")
-        val intent = Intent(this, InstallmentAdapter::class.java)
-        intent.putExtra("itemprice",itemprice)
-        Toast.makeText(applicationContext, "price:${itemprice} name:${itemName}",Toast.LENGTH_LONG).show()
-        binding.itemPrice.text = itemprice
+
+        binding.itemPrice.text = itemPrice.toString()
         binding.itemName.text = itemName
         var imageView = findViewById<ImageView>(R.id.gifimage)
-        Glide.with(this).load(R.raw.gif2).into(imageView);
-
+        Glide.with(this).load(R.raw.gif2).into(imageView)
+        getFromAPI()
     }
-//    object RetrofitClient{
-//        private var instance : Retrofit? = null
-////TODO:http://10.0.2.2:8083
-//        fun getInstance() : Retrofit{
-//            if(instance == null){
-//                instance = Retrofit.Builder()
-//                    .baseUrl("http://10.0.2.2:8083/")
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build()
-//            }
-//            return instance!!
-//        }
-//    }
+
     private fun getFromAPI() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://run.mocky.io/")
+            .baseUrl("http://10.0.2.2:8083/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -79,6 +64,9 @@ class InstallmentActivity : AppCompatActivity() {
                             return
                         }
                         response.body()?.let { dto ->
+                            val size = dto.insitem.size - 1
+                            for (i: Int in 0..size)
+                                dto.insitem[i].itemPrice = itemPrice
                             recyclerAdapter.submitList(dto.insitem)
                         }
                     }
