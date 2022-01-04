@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,20 +30,23 @@ class DepositActivity : AppCompatActivity(){
         val intent = Intent(this, MapDetailsActivity::class.java)
         startActivity(intent)
     })
+    var itemPrice: Int = 0
+    var dkind :String= ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deposit)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_deposit)
-
+        Toast.makeText(applicationContext,dkind, Toast.LENGTH_SHORT).show()
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        itemPrice = intent.getStringExtra("itemprice")?.toInt()!!
+        dkind = intent.getStringExtra("dkind")?.toString()!!
         val titleView = findViewById<TextView>(R.id.depositname)
         var type = intent.getStringExtra("type")
         titleView.text = type
         var imageView = findViewById<ImageView>(R.id.gifimage1)
         Glide.with(this).load(R.raw.gif1).into(imageView);
-
         getFromAPI()
     }
     private fun getFromAPI() {
@@ -52,7 +56,7 @@ class DepositActivity : AppCompatActivity(){
             .build()
 
         retrofit.create(InstallmentService::class.java).also {
-            it.getInstallmentList()
+            it.getInstallmentList(dkind)
                 .enqueue(object : Callback<InstallmentDto> {
                     override fun onResponse(call: Call<InstallmentDto>, response: Response<InstallmentDto>) {
                         if (response.isSuccessful.not()) {
@@ -60,6 +64,9 @@ class DepositActivity : AppCompatActivity(){
                             return
                         }
                         response.body()?.let { dto ->
+                            val size = dto.insitem.size - 1
+                            for (i: Int in 0..size)
+                                dto.insitem[i].itemPrice = itemPrice
                             recyclerAdapter.submitList(dto.insitem)
                         }
                     }

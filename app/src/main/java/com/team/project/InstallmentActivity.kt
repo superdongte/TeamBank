@@ -21,7 +21,7 @@ class InstallmentActivity : AppCompatActivity() {
     private lateinit var retrofit: Retrofit
     lateinit var myApi : InstallmentService
     var itemPrice: Int = 0
-
+    var dkind: String = ""
     private val recyclerView: RecyclerView by lazy{
         findViewById(R.id.InstallmentList)
     }
@@ -39,6 +39,7 @@ class InstallmentActivity : AppCompatActivity() {
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        dkind = intent.getStringExtra("depositkind")?.toString()!!
         itemPrice = intent.getStringExtra("price")?.toInt()!!
         var itemName = intent.getStringExtra("name")
 
@@ -56,7 +57,7 @@ class InstallmentActivity : AppCompatActivity() {
             .build()
 
         retrofit.create(InstallmentService::class.java).also {
-            it.getInstallmentList()
+            it.getInstallmentList(dkind)
                 .enqueue(object : Callback<InstallmentDto> {
                     override fun onResponse(call: Call<InstallmentDto>, response: Response<InstallmentDto>) {
                         if (response.isSuccessful.not()) {

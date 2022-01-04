@@ -21,7 +21,7 @@ class GenderActivity : AppCompatActivity() {
         Log.d("test", "oncreate()")
         title = "적금 추천 시스템"
         binding = DataBindingUtil.setContentView(this, R.layout.activity_genderandage)
-        val intent = Intent(this, CategoryActivity::class.java)
+        val intent = Intent(this, DkindActivity::class.java)
         var gender: String = "gender"
         var age: String = "age"
         binding.woman.setOnClickListener(View.OnClickListener {
@@ -41,7 +41,7 @@ class GenderActivity : AppCompatActivity() {
             }else {
                 age = "01"
                 intent.putExtra("genage", gender + age)
-                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                intent.putExtra("itemprice","300000")
                 startActivity(intent)
             }
         })
@@ -51,7 +51,7 @@ class GenderActivity : AppCompatActivity() {
             }else {
                 age = "02"
                 intent.putExtra("genage", gender + age)
-                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                intent.putExtra("itemprice","1000000")
                 startActivity(intent)
             }
         })
@@ -61,7 +61,7 @@ class GenderActivity : AppCompatActivity() {
             }else {
                 age = "03"
                 intent.putExtra("genage", gender + age)
-                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                intent.putExtra("itemprice","10000000")
                 startActivity(intent)
             }
         })
@@ -71,7 +71,7 @@ class GenderActivity : AppCompatActivity() {
             }else {
                 age = "04"
                 intent.putExtra("genage", gender + age)
-                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                intent.putExtra("itemprice","5000000")
                 startActivity(intent)
             }
         })
@@ -81,7 +81,7 @@ class GenderActivity : AppCompatActivity() {
             }else {
                 age = "05"
                 intent.putExtra("genage", gender + age)
-                Toast.makeText(applicationContext, gender + age, Toast.LENGTH_SHORT).show()
+                intent.putExtra("itemprice","5000000")
                 startActivity(intent)
             }
         })

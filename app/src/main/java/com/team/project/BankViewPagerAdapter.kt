@@ -18,10 +18,12 @@ class BankViewPagerAdapter(val itemClicked: (BankModel) -> Unit): ListAdapter<Ba
         fun bind(bankModel: BankModel) {
             val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
             val priceTextView = view.findViewById<TextView>(R.id.telephonenumber)
+            val locationText = view.findViewById<TextView>(R.id.banklocation)
             val thumbnailImageView = view.findViewById<ImageView>(R.id.thumbnailIamgeView)
 
-            titleTextView.text = bankModel.name
-            priceTextView.text = bankModel.telephonenum
+            titleTextView.text = bankModel.branchid
+            priceTextView.text = bankModel.banktelephone
+            locationText.text = bankModel.banklocation
 
             view.setOnClickListener {
                 itemClicked(bankModel)
@@ -29,7 +31,7 @@ class BankViewPagerAdapter(val itemClicked: (BankModel) -> Unit): ListAdapter<Ba
 
             Glide
                 .with(thumbnailImageView.context)
-                .load(bankModel.imgUrl)
+                .load(bankModel.bankimg)
                 .into(thumbnailImageView)
 
         }
@@ -48,7 +50,7 @@ class BankViewPagerAdapter(val itemClicked: (BankModel) -> Unit): ListAdapter<Ba
 
         val differ = object : DiffUtil.ItemCallback<BankModel>() {
             override fun areItemsTheSame(oldItem: BankModel, newItem: BankModel): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.bankid == newItem.bankid
             }
 
             override fun areContentsTheSame(oldItem: BankModel, newItem: BankModel): Boolean {

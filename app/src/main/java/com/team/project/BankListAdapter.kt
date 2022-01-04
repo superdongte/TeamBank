@@ -21,14 +21,16 @@ class BankListAdapter : ListAdapter<BankModel, BankListAdapter.ItemViewHolder>(d
         fun bind(bankModel: BankModel){
             val bankNameTextView = view.findViewById<TextView>(R.id.titleTextView)//은행지점명
             val bankTelTextView = view.findViewById<TextView>(R.id.telephonenumber)//전화번호
+            val locationText = view.findViewById<TextView>(R.id.banklocation)
             val thumbnailImageView = view.findViewById<ImageView>(R.id.thumbnailImageView)
 
-            bankNameTextView.text = bankModel.name
-            bankTelTextView.text = bankModel.telephonenum
+            bankNameTextView.text = bankModel.branchid
+            bankTelTextView.text = bankModel.banktelephone
+            locationText.text = bankModel.banklocation
 
             Glide
                 .with(thumbnailImageView.context)
-                .load(bankModel.imgUrl)
+                .load(bankModel.bankimg)
                 .transform(CenterCrop(), RoundedCorners(dpToPx(thumbnailImageView.context, 12)))
                 .into(thumbnailImageView)
         }
@@ -51,7 +53,7 @@ class BankListAdapter : ListAdapter<BankModel, BankListAdapter.ItemViewHolder>(d
 
         val differ = object : DiffUtil.ItemCallback<BankModel>() {
             override fun areItemsTheSame(oldItem: BankModel, newItem: BankModel): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.bankid == newItem.bankid
             }
 
             override fun areContentsTheSame(oldItem: BankModel, newItem: BankModel): Boolean {

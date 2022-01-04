@@ -1,62 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".CategoryActivity">
+<layout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp">
-            <TextView
-                android:textAlignment="center"
-                android:paddingVertical="20dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".CategoryActivity">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="투자 가능기간"
-                android:textSize="40sp"
-                android:fontFamily="@font/katuri"/>
-        </LinearLayout>
+                android:layout_marginVertical="20dp">
+                <TextView
+                    android:textAlignment="center"
+                    android:paddingVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="투자 가능기간"
+                    android:textSize="40sp"
+                    android:fontFamily="@font/katuri"/>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp">
-
-            <Button
-                android:id="@+id/shortinvest"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/katuri"
-                android:paddingVertical="10dp"
-                android:text="1년 이내"
-                android:layout_weight="1"
-                android:textSize="30dp" />
+                android:layout_marginHorizontal="40dp">
 
-            <Button
-                android:layout_marginLeft="10dp"
-                android:id="@+id/longinvest"
+                <Button
+                    android:id="@+id/shortinvest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/katuri"
+                    android:paddingVertical="10dp"
+                    android:text="1년 이내"
+                    android:layout_weight="1"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/longinvest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/katuri"
+                    android:paddingVertical="10dp"
+                    android:text="1년 초과"
+                    android:textSize="30dp"/>
+            </LinearLayout>
+            <View
+                android:id="@+id/lineView"
+                android:background="#cccccc"
+                android:layout_width="0dp"
+                android:layout_height="1dp"/>
+
+            <WebView
+                android:id="@+id/dkwebview1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/katuri"
-                android:paddingVertical="10dp"
-                android:text="1년 초과"
-                android:textSize="30dp"/>
-        </LinearLayout>
+                android:layout_height="300dp" />
+
+            <View
+                android:id="@+id/lineView2"
+                android:background="#cccccc"
+                android:layout_width="0dp"
+                android:layout_height="1dp"/>
+
             <ImageView
-                android:id="@+id/dkindimage"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"/>
-    </LinearLayout>
+                android:src="@drawable/woman"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/woman"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/woman"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/woman"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
 </layout>

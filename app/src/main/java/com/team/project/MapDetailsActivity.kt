@@ -53,6 +53,8 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
         findViewById(R.id.mapView)
     }
 
+    var markers: MutableList<Marker> = mutableListOf<Marker>()
+
     private val viewPager: ViewPager2 by lazy{
         findViewById(R.id.bankViewPager)
     }
@@ -73,7 +75,7 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
         val intent = Intent()
             .apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "[글로벌 금융의 대표주자 부산은행입니다.] ${it.name} ${it.telephonenum} 사진보기 : ${it.imgUrl}")
+                putExtra(Intent.EXTRA_TEXT, "[글로벌 금융의 대표주자 부산은행입니다.] ${it.branchid} ${it.banktelephone} 사진보기 : ${it.bankimg}")
                 type = "text/plain"
             }
         startActivity(Intent.createChooser(intent, null))
@@ -100,9 +102,15 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-
+                var size = markers.size-1
+                for(i:Int in 0..size){
+                    if (i==position)
+                        markers[i].iconTintColor = Color.rgb(74,74,255)
+                    else
+                        markers[i].iconTintColor = Color.rgb(255,74,74)
+                }
                 val selectedBankModel = viewPagerAdapter.currentList[position]
-                val cameraUpdate = CameraUpdate.scrollTo(LatLng(selectedBankModel.lat, selectedBankModel.lng))
+                val cameraUpdate = CameraUpdate.scrollTo(LatLng(selectedBankModel.banklat, selectedBankModel.banklng))
                     .animate(CameraAnimation.Easing)
 
                 naverMap.moveCamera(cameraUpdate)
@@ -135,7 +143,7 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
 //TODO: 이부분에서 localhost:8090 이걸 놓고 BankService 인터페이스에 주소 뒷부분을 넣으면 됩니다.
     private fun getBankListFromAPI() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://run.mocky.io")
+            .baseUrl("http://10.0.2.2:8083/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -171,17 +179,17 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
         val mylat = gpsTracker!!.getLatitude()
         val mylng = gpsTracker!!.getLongitude()
         Toast.makeText(applicationContext,"현재위치 \n위도:$mylat , \n경도:$mylng",Toast.LENGTH_LONG).show()
-        var closeBank: BankModel = BankModel(0, "", "", 0.0, 0.0, "")
+        var closeBank: BankModel = BankModel("", "", "", "", 0.0, 0.0,"")
         var oldDistance:Float = 0.0F
         banks.forEach { bank ->
             //거리구하기
             val mylocation = Location("mylocation")
             mylocation.setLatitude(mylat)
             mylocation.setLongitude(mylng)
-            val banklocation = Location("banklocation")
-            banklocation.setLatitude(bank.lat)
-            banklocation.setLongitude(bank.lng)
-            var distance = mylocation.distanceTo(banklocation)
+            val bankposition = Location("bankposition")
+            bankposition.setLatitude(bank.banklat)
+            bankposition.setLongitude(bank.banklng)
+            var distance = mylocation.distanceTo(bankposition)
             Log.d(TAG, "Distance: $distance")
             if (distance < oldDistance){
                 oldDistance = distance
@@ -191,13 +199,14 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
                 closeBank = bank
             }
             val marker = Marker()
-            marker.position = LatLng(bank.lat, bank.lng)
+            marker.position = LatLng(bank.banklat, bank.banklng)
             marker.onClickListener = this
 
             marker.map = naverMap
-            marker.tag = bank.id
+            marker.tag = bank.bankid
             marker.icon = MarkerIcons.BLACK
             marker.iconTintColor = Color.rgb(255,74,74)
+            markers.add(marker)
         }
 
         var list = viewPagerAdapter.currentList
@@ -310,7 +319,7 @@ class MapDetailsActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnCl
 
     override fun onClick(overly: Overlay): Boolean {
         val selectedModel = viewPagerAdapter.currentList.firstOrNull {
-            it.id == overly.tag
+            it.bankid == overly.tag
         }
 
         selectedModel?.let {

@@ -44,16 +44,35 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
+            android:fontFamily="@font/katuri"
             android:maxLines="1"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/titleTextView"
-            app:layout_constraintStart_toEndOf="@id/thumbnailIamgeView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:textSize="20sp"
-            android:fontFamily="@font/katuri"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/thumbnailIamgeView"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="051-514-2104" />
+
+        <TextView
+            android:id="@+id/banklocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/katuri"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/thumbnailIamgeView"
+            app:layout_constraintTop_toBottomOf="@+id/telephonenumber"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="부산진구" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

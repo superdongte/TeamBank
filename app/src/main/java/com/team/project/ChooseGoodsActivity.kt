@@ -24,10 +24,14 @@ class ChooseGoodsActivity : AppCompatActivity() {
     private val recyclerView:RecyclerView by lazy{
         findViewById(R.id.goodsRecyclerView)
     }
+
+    var kind: String = ""
+
     private val recyclerAdapter = GoodsListAdapter(itemClicked = {
         val intent = Intent(this, InstallmentActivity::class.java)
         Toast.makeText(applicationContext, it.itemprice.toString(), Toast.LENGTH_LONG).show()
         intent.putExtra("price", it.itemprice.toString())
+        intent.putExtra("depositkind", kind)
         startActivity(intent)
     })
 
@@ -42,6 +46,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
 
         var temp = intent.getStringExtra("person")
         temp?.let{Log.i("MyTag", it)}
+        kind = intent.getStringExtra("dkind")!!
 
         retrofit = RetrofitClient.getInstance()
         myApi = retrofit.create(GoodsService::class.java)
@@ -69,6 +74,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,binding.goodsPic1.tag.toString(),Toast.LENGTH_LONG).show()
             intent.putExtra("price", binding.goodsPic1.tag.toString())
             intent.putExtra("name", "UHD TV")
+            intent.putExtra("depositkind", kind)
             startActivity(intent)
         })
         binding.goodsPic2.setOnClickListener(View.OnClickListener {
@@ -76,6 +82,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
             val intent = Intent(this, InstallmentActivity::class.java)
             intent.putExtra("price", "5000000")
             intent.putExtra("name", "여행가기")
+            intent.putExtra("depositkind", kind)
             startActivity(intent)
         })
         binding.goodsPic3.setOnClickListener(View.OnClickListener {
@@ -83,6 +90,7 @@ class ChooseGoodsActivity : AppCompatActivity() {
             val intent = Intent(this, InstallmentActivity::class.java)
             intent.putExtra("price", "3000000")
             intent.putExtra("name", "맥북pro")
+            intent.putExtra("depositkind" ,kind)
             startActivity(intent)
         })
 

@@ -1,8 +1,7 @@
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".InstallmentActivity">
@@ -95,10 +94,10 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/installment"
+                    android:id="@+id/bestrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4.3%"
+                    android:text="2.2%"
                     android:textColor="#ffff0000"
                     android:textSize="20sp"
                     android:fontFamily="@font/katuri">
@@ -116,16 +115,17 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/InstallmentList"
             android:layout_width="match_parent"
             android:layout_height="690dp"
             android:layout_alignParentTop="true"
+            android:orientation="vertical"
             android:padding="5dp"
             android:scrollbars="vertical"
-            tools:listitem="@layout/installment_item"
-            app:layout_constraintTop_toBottomOf="@+id/linearText"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/linearText"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:listitem="@layout/installment_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

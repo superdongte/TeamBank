@@ -22,14 +22,16 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            val periodvalueText = view.findViewById<TextView>(R.id.period)
            val bankNameText = view.findViewById<TextView>(R.id.bankkind)
            val moneyText = view.findViewById<TextView>(R.id.money)
+           val bestrateText = view.findViewById<TextView>(R.id.bestrate)
            titleText.text = installmentModel.depositname
            basicvalueText.text = installmentModel.baserate.toString()
            primevalueText.text = installmentModel.primerate.toString()
            periodvalueText.text = installmentModel.dmonth.toString()
            bankNameText.text = installmentModel.bankname
+//           bestrateText.text = "3.0".toString()
 
            var month = installmentModel.dmonth
-           var rate = installmentModel.baserate
+           var rate = installmentModel.primerate
            var money = (installmentModel.itemPrice / (month+(month*rate))).toInt()
            moneyText.text = money.toString()
 
@@ -41,14 +43,7 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            var realrate:Double =0.0
            var list = currentList
            var size = list.size-1
-//           for (i:Int in 1..size){
-//               var currentrate:Double = basicvalue * (periodvalue+1) / 24
-//               if(currentrate > oldrate){
-//                   realrate = currentrate
-//               }else{
-//                   realrate = oldrate
-//               }
-//           }
+
        }
    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InstallmentAdapter.ItemViewHolder {

@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface BankService {
     //Todo:이부분만 하면 됨
-    @GET("v3/78fb0ca2-01de-4a97-869d-0cd6bafb010d")
+    @GET("bank/banklist")
     fun getBankList(): Call<BankDto>
 }
