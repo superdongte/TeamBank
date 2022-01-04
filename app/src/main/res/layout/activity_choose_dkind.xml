@@ -20,7 +20,7 @@
                     android:paddingVertical="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="투자 가능기간"
+                    android:text="원하시는 상품은?"
                     android:textSize="40sp"
                     android:fontFamily="@font/katuri"/>
             </LinearLayout>
@@ -37,7 +37,7 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/katuri"
                     android:paddingVertical="10dp"
-                    android:text="1년 이내"
+                    android:text="단기적금"
                     android:layout_weight="1"
                     android:textSize="30dp" />
 
@@ -50,7 +50,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/katuri"
                     android:paddingVertical="10dp"
-                    android:text="1년 초과"
+                    android:text="장기예금"
                     android:textSize="30dp"/>
             </LinearLayout>
             <View
@@ -71,26 +71,12 @@
                 android:layout_height="1dp"/>
 
             <ImageView
+                android:id="@+id/gifimage2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/woman"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/woman"
-                android:layout_gravity="center"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/woman"
-                android:layout_gravity="center"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/woman"
-                android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>
 </layout>
