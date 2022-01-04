@@ -31,8 +31,8 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
 //           bestrateText.text = "3.0".toString()
 
            var month = installmentModel.dmonth
-           var rate = installmentModel.primerate
-           var money = (installmentModel.itemPrice / (month+(month*rate))).toInt()
+           var rate = installmentModel.primerate / 100
+           var money = installmentModel.itemPrice / (month+rate*(((month*(month+1))/2)/month))
            moneyText.text = money.toString()
 
            view.setOnClickListener{
