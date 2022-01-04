@@ -19,6 +19,7 @@
         android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".ChooseGoodsActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="false" />
         <!-- naver -->
         <meta-data
@@ -27,6 +28,7 @@
 
         <activity
             android:name=".MapDetailsActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="false">
 
 <!--                <intent-filter>-->
@@ -37,15 +39,23 @@
         </activity>
         <activity
             android:name=".InstallmentActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="false" />
         <activity
             android:name=".DepositActivity"
+            android:theme="@style/FullScreenTheme"
+            android:exported="false" />
+        <activity
+            android:name=".DkindActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="false" />
         <activity
             android:name=".CategoryActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="false" />
         <activity
             android:name=".GenderActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,6 +65,7 @@
         </activity>
         <activity
             android:name=".AgeActivity"
+            android:theme="@style/FullScreenTheme"
             android:exported="false">
         </activity>
 
