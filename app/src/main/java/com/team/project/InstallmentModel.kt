@@ -5,8 +5,9 @@ data class InstallmentModel(
     val baserate: Double,
     val dmonth: Int,
     val depositname: String,
-    val primerate: Double,
+    var primerate: Double,
     val bankname: String,
     val dkind: String,
-    var itemPrice: Int
+    var itemPrice: Int,
+    var itemName: String
 )

@@ -22,6 +22,7 @@ class InstallmentActivity : AppCompatActivity() {
     lateinit var myApi : InstallmentService
     var itemPrice: Int = 0
     var dkind: String = ""
+    var itemName:String =""
     private val recyclerView: RecyclerView by lazy{
         findViewById(R.id.InstallmentList)
     }
@@ -39,12 +40,18 @@ class InstallmentActivity : AppCompatActivity() {
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+
         dkind = intent.getStringExtra("depositkind")?.toString()!!
         itemPrice = intent.getStringExtra("price")?.toInt()!!
-        var itemName = intent.getStringExtra("name")
+        itemName = intent.getStringExtra("name")?.toString()!!
 
         binding.itemPrice.text = itemPrice.toString()
         binding.itemName.text = itemName
+        if(dkind == "shortdep"){
+            binding.bestrate.text = "3.0"
+        }else if(dkind == "longdep"){
+            binding.bestrate.text = "2.2"
+        }
         var imageView = findViewById<ImageView>(R.id.gifimage)
         Glide.with(this).load(R.raw.gif2).into(imageView)
         getFromAPI()
@@ -66,8 +73,9 @@ class InstallmentActivity : AppCompatActivity() {
                         }
                         response.body()?.let { dto ->
                             val size = dto.insitem.size - 1
-                            for (i: Int in 0..size)
+                            for (i: Int in 0..size) {
                                 dto.insitem[i].itemPrice = itemPrice
+                            }
                             recyclerAdapter.submitList(dto.insitem)
                         }
                     }

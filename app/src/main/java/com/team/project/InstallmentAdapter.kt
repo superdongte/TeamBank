@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.Math.max
 import java.lang.Math.round
 import java.lang.String.format
 
@@ -23,12 +24,13 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            val bankNameText = view.findViewById<TextView>(R.id.bankkind)
            val moneyText = view.findViewById<TextView>(R.id.money)
            val bestrateText = view.findViewById<TextView>(R.id.bestrate)
+           val NameTextView = view.findViewById<TextView>(R.id.itemName)
            titleText.text = installmentModel.depositname
            basicvalueText.text = installmentModel.baserate.toString()
            primevalueText.text = installmentModel.primerate.toString()
            periodvalueText.text = installmentModel.dmonth.toString()
            bankNameText.text = installmentModel.bankname
-//           bestrateText.text = "3.0".toString()
+//           NameTextView.text = installmentModel.itemName
 
            var month = installmentModel.dmonth
            var rate = installmentModel.primerate / 100
@@ -39,10 +41,18 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
                itemClicked(installmentModel)
            }
 
-           var oldrate:Double = 0.0
-           var realrate:Double =0.0
-           var list = currentList
-           var size = list.size-1
+//           var oldrate:Double = 0.0
+//           var maxrate:Double =0.0
+//           var list = currentList
+//           var size = list.size-1
+//           for(i:Int in 0..size){
+//               if(list[i].primerate > oldrate){
+//                   list[i].primerate = maxrate
+//               }else{
+//                   oldrate = maxrate
+//               }
+//           }
+//           bestrateText.text = maxrate.toString()
 
        }
    }
