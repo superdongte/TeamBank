@@ -37,7 +37,7 @@ class GoodsListAdapter(val itemClicked: (GoodsModel) -> Unit) : androidx.recycle
 
     override fun onCreateViewHolder(parent:ViewGroup, viewType:Int):ItemViewHolder{
         val inflater = LayoutInflater.from(parent.context)
-        return ItemViewHolder(inflater.inflate(R.layout.item_choosegoods,parent,false))
+        return ItemViewHolder(inflater.inflate(R.layout.testgoods,parent,false))
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int){

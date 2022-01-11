@@ -46,7 +46,7 @@ class DepositActivity : AppCompatActivity(){
         var type = intent.getStringExtra("type")
         titleView.text = type
         var imageView = findViewById<ImageView>(R.id.gifimage1)
-        Glide.with(this).load(R.raw.gif1).into(imageView);
+        Glide.with(this).load(R.raw.gif3).into(imageView);
         getFromAPI()
     }
     private fun getFromAPI() {

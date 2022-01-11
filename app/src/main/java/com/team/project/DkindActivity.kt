@@ -38,15 +38,23 @@ class DkindActivity : AppCompatActivity() {
         var genderage = intent.getStringExtra("genage")
         var itemValue= intent.getStringExtra("itemprice")
         Toast.makeText(applicationContext,itemValue,Toast.LENGTH_SHORT).show()
+
+        binding.deplist.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, GoodsDeplistActivity::class.java)
+            intent.putExtra("itemprice",itemValue)
+            intent.putExtra("genage", genderage)
+            intent.putExtra("dkind", "deplist")
+            startActivity(intent)
+        })
         binding.shortinvest.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
+            val intent = Intent(this, GoodsDeplistActivity::class.java)
             intent.putExtra("itemprice",itemValue)
             intent.putExtra("genage", genderage)
             intent.putExtra("dkind", "shortdep")
             startActivity(intent)
         })
         binding.longinvest.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
+            val intent = Intent(this, GoodsDeplistActivity::class.java)
             intent.putExtra("itemprice",itemValue)
             intent.putExtra("genage", genderage)
             intent.putExtra("dkind", "longdep")
@@ -54,6 +62,6 @@ class DkindActivity : AppCompatActivity() {
         })
         initViews()
         var imageView2 = findViewById<ImageView>(R.id.gifimage2)
-        Glide.with(this).load(R.raw.gif3).into(imageView2);
+        Glide.with(this).load(R.raw.finalgif).into(imageView2);
     }
 }
