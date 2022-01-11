@@ -2,36 +2,30 @@ package com.team.project
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.HorizontalScrollView
-import android.widget.ImageView
-import android.widget.Toast
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.team.project.databinding.ActivityTestBinding
+import com.team.project.databinding.ActivityGoodsdeplistBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class NewMain : AppCompatActivity(){
-    private lateinit var binding : ActivityTestBinding
+class GoodsDeplistActivity : AppCompatActivity(){
+    private lateinit var binding : ActivityGoodsdeplistBinding
     private lateinit var retrofit: Retrofit
     lateinit var myApi : InstallmentService
-    var itemPrice: Int = 5000000
-    var dkind: String = "shortdep"
-    var itemName:String =""
-    var kind: String = "shortdep"
+    var itemPrice: Int = 0
+    var dkind: String = ""
+    var genage: String = ""
+    //    var itemName:String =""
     private val goodsrecyclerAdapter = GoodsListAdapter(itemClicked = {
-        val intent = Intent(this, InstallmentActivity::class.java)
-        Toast.makeText(applicationContext, it.itemprice.toString(), Toast.LENGTH_LONG).show()
-        intent.putExtra("name",it.itemname)
-        intent.putExtra("price", it.itemprice.toString())
-        intent.putExtra("depositkind", kind)
-        startActivity(intent)
+        itemPrice= it.itemprice
+        getFromDepoistAPI()
     })
     private val itemrecyclerView: RecyclerView by lazy{
         findViewById(R.id.goodsRecyclerView)
@@ -48,16 +42,35 @@ class NewMain : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_installment)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_test)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_goodsdeplist)
 
         depositrecyclerView.adapter = depositrecyclerAdapter
         depositrecyclerView.layoutManager = LinearLayoutManager(this)
         itemrecyclerView.adapter = goodsrecyclerAdapter
         itemrecyclerView.layoutManager = LinearLayoutManager(this).also { it.orientation=LinearLayoutManager.HORIZONTAL }
 
+        binding.goodsPic1.setOnClickListener(View.OnClickListener {
+            Log.d("MyTag", "click goodsPic1")
+            val intent = Intent(this, InstallmentActivity::class.java)
+            itemPrice=4000000
+            getFromDepoistAPI()
+        })
+        binding.goodsPic2.setOnClickListener(View.OnClickListener {
+            Log.d("MyTag", "click goodsPic2")
+            val intent = Intent(this, InstallmentActivity::class.java)
+            itemPrice=5000000
+            getFromDepoistAPI()
+        })
+        binding.goodsPic3.setOnClickListener(View.OnClickListener {
+            Log.d("MyTag", "click goodsPic3")
+            val intent = Intent(this, InstallmentActivity::class.java)
+            itemPrice=3000000
+            getFromDepoistAPI()
+        })
 
-//        dkind = intent.getStringExtra("depositkind")?.toString()!!
-//        itemPrice = intent.getStringExtra("price")?.toInt()!!
+        dkind = intent.getStringExtra("dkind")!!
+        itemPrice = intent.getStringExtra("itemprice")?.toInt()!!
+        genage = intent.getStringExtra("genage")!!
 //        itemName = intent.getStringExtra("name")?.toString()!!
 
         getFromGoodsAPI()
@@ -98,7 +111,7 @@ class NewMain : AppCompatActivity(){
             .build()
 
         retrofit.create(GoodsService::class.java).also {
-            it.getGoodsList("F01")
+            it.getGoodsList(genage)
                 .enqueue(object : Callback<GoodsDto> {
                     override fun onResponse(call: Call<GoodsDto>, response: Response<GoodsDto>) {
                         if (response.isSuccessful.not()) {
