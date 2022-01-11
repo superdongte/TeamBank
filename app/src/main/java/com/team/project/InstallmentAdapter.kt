@@ -35,25 +35,12 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            var month = installmentModel.dmonth
            var rate = installmentModel.primerate / 100
            var money = installmentModel.itemPrice / (month+rate*(((month*(month+1))/2)/month))
-           moneyText.text = money.toString()
+           var mymoney = format("%.0f",money)
+           moneyText.text = mymoney
 
            view.setOnClickListener{
                itemClicked(installmentModel)
            }
-
-//           var oldrate:Double = 0.0
-//           var maxrate:Double =0.0
-//           var list = currentList
-//           var size = list.size-1
-//           for(i:Int in 0..size){
-//               if(list[i].primerate > oldrate){
-//                   list[i].primerate = maxrate
-//               }else{
-//                   oldrate = maxrate
-//               }
-//           }
-//           bestrateText.text = maxrate.toString()
-
        }
    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InstallmentAdapter.ItemViewHolder {
