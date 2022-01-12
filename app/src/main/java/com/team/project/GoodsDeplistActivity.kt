@@ -43,6 +43,11 @@ class GoodsDeplistActivity : AppCompatActivity(){
         setContentView(R.layout.activity_goodsdeplist)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_goodsdeplist)
 
+        dkind = intent.getStringExtra("dkind")!!
+        itemPrice = intent.getStringExtra("itemprice")?.toInt()!!
+        genage = intent.getStringExtra("genage")!!
+        binding.itemPrice.text=itemPrice.toString()
+
         depositrecyclerView.adapter = depositrecyclerAdapter
         depositrecyclerView.layoutManager = LinearLayoutManager(this)
         itemrecyclerView.adapter = goodsrecyclerAdapter
@@ -73,10 +78,9 @@ class GoodsDeplistActivity : AppCompatActivity(){
             getFromDepoistAPI()
         })
 
-        dkind = intent.getStringExtra("dkind")!!
-        itemPrice = intent.getStringExtra("itemprice")?.toInt()!!
-        genage = intent.getStringExtra("genage")!!
+
 //        itemName= intent.getStringExtra("itname")!!
+
 //        binding.itemName.text= itemName
 //        binding.itemPrice.text = itemPrice.toString()
 
