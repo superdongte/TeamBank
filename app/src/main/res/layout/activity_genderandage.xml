@@ -41,6 +41,13 @@
                 android:src="@drawable/man" />
         </LinearLayout>
         <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="5dp"
+            android:orientation="horizontal"
+            android:background="#3BD0BB">
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -58,34 +65,63 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:columnCount="2">
-            <ImageView
+
+            <Button
                 android:id="@+id/age1"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/age_10"/>
-            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/backgound_round2"
+                style="@style/ButtonColor"
+                android:fontFamily="@font/katuri"
+                android:text="10대 이하"
+                android:textSize="25sp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"/>
+            <Button
                 android:id="@+id/age2"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/age_20"/>
-            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/backgound_round2"
+                style="@style/ButtonColor"
+                android:fontFamily="@font/katuri"
+                android:text="20대 이상"
+                android:textSize="25sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"/>
+            <Button
                 android:id="@+id/age3"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/age_30"/>
-            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/backgound_round2"
+                style="@style/ButtonColor"
+                android:fontFamily="@font/katuri"
+                android:text="30대 이상"
+                android:textSize="25sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"/>
+            <Button
                 android:id="@+id/age4"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/age_40"
-                />
-            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/backgound_round2"
+                style="@style/ButtonColor"
+                android:fontFamily="@font/katuri"
+                android:text="40대 이상"
+                android:textSize="25sp" />
+            <Button
                 android:id="@+id/age5"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/age_50_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/backgound_round2"
+                style="@style/ButtonColor"
+                android:fontFamily="@font/katuri"
+                android:text="50대 이상"
+                android:textSize="25sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 app:layout_columnSpan="2"
                 app:layout_gravity="center"/>
+
 
 
         </androidx.gridlayout.widget.GridLayout>

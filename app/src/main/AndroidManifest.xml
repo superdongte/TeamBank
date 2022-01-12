@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.team.project">
     <!-- USER agree -->
-    <!--위치정보 사용을 위한 권한 추가-->
+    <!-- 위치정보 사용을 위한 권한 추가 -->
     <uses-permission android:name="android.permission.ACCESS_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -12,54 +12,47 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TeamBank"
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".ChooseGoodsActivity"
-            android:exported="false" />
-        <!-- naver -->
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:label="@string/title_activity_splash"
+            android:theme="@style/Splash">
+            <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="@string/naver_map_client_id" />
         <activity
             android:name=".GenderActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".DkindActivity"
+            android:parentActivityName=".GenderActivity"
             android:exported="false" />
         <activity
             android:name=".GoodsDeplistActivity"
+            android:parentActivityName=".DkindActivity"
             android:exported="false" />
         <activity
             android:name=".MapDetailsActivity"
-            android:exported="false">
-        </activity>
-
-
-
-        <activity
-            android:name=".InstallmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DepositActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CategoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AgeActivity"
-            android:exported="false">
-        </activity>
+            android:parentActivityName=".GoodsDeplistActivity"
+            android:exported="false"></activity>
 
     </application>
 

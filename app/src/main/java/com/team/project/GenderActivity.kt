@@ -22,6 +22,7 @@ class GenderActivity : AppCompatActivity() {
         title = "적금 추천 시스템"
         binding = DataBindingUtil.setContentView(this, R.layout.activity_genderandage)
         val intent = Intent(this, DkindActivity::class.java)
+        val send = Intent(this,GoodsDeplistActivity::class.java)
         var gender: String = "gender"
         var age: String = "age"
         binding.woman.setOnClickListener(View.OnClickListener {
@@ -42,6 +43,7 @@ class GenderActivity : AppCompatActivity() {
                 age = "01"
                 intent.putExtra("genage", gender + age)
                 intent.putExtra("itemprice","300000")
+                send.putExtra("itemprice","300000")
                 startActivity(intent)
             }
         })
@@ -52,6 +54,7 @@ class GenderActivity : AppCompatActivity() {
                 age = "02"
                 intent.putExtra("genage", gender + age)
                 intent.putExtra("itemprice","1000000")
+                send.putExtra("itemprice","1000000")
                 startActivity(intent)
             }
         })
@@ -62,6 +65,7 @@ class GenderActivity : AppCompatActivity() {
                 age = "03"
                 intent.putExtra("genage", gender + age)
                 intent.putExtra("itemprice","10000000")
+                send.putExtra("itemprice","10000000")
                 startActivity(intent)
             }
         })
@@ -72,6 +76,7 @@ class GenderActivity : AppCompatActivity() {
                 age = "04"
                 intent.putExtra("genage", gender + age)
                 intent.putExtra("itemprice","5000000")
+                send.putExtra("itemprice","5000000")
                 startActivity(intent)
             }
         })
@@ -82,6 +87,7 @@ class GenderActivity : AppCompatActivity() {
                 age = "05"
                 intent.putExtra("genage", gender + age)
                 intent.putExtra("itemprice","5000000")
+                send.putExtra("itemprice","5000000")
                 startActivity(intent)
             }
         })

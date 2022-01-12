@@ -23,7 +23,7 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            val periodvalueText = view.findViewById<TextView>(R.id.period)
            val bankNameText = view.findViewById<TextView>(R.id.bankkind)
            val moneyText = view.findViewById<TextView>(R.id.money)
-           val bestrateText = view.findViewById<TextView>(R.id.bestrate)
+           val PriceText = view.findViewById<TextView>(R.id.itemPrice)
            val NameTextView = view.findViewById<TextView>(R.id.itemName)
            titleText.text = installmentModel.depositname
            basicvalueText.text = installmentModel.baserate.toString()
@@ -31,6 +31,7 @@ class InstallmentAdapter(val itemClicked: (InstallmentModel) -> Unit) : ListAdap
            periodvalueText.text = installmentModel.dmonth.toString()
            bankNameText.text = installmentModel.bankname
 //           NameTextView.text = installmentModel.itemName
+//           PriceText.text = installmentModel.itemPrice.toString()
 
            var month = installmentModel.dmonth
            var rate = installmentModel.primerate / 100

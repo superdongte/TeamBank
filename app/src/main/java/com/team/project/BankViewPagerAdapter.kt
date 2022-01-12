@@ -39,7 +39,7 @@ class BankViewPagerAdapter(val itemClicked: (BankModel) -> Unit): ListAdapter<Ba
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder{
         val inflater = LayoutInflater.from(parent.context)
-        return ItemViewHolder(inflater.inflate(R.layout.item_house_detail_for_viewpager, parent, false))
+        return ItemViewHolder(inflater.inflate(R.layout.item_bank_detail, parent, false))
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

@@ -3,7 +3,6 @@ package com.team.project
 import android.content.Context
 import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -37,7 +36,7 @@ class BankListAdapter : ListAdapter<BankModel, BankListAdapter.ItemViewHolder>(d
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return ItemViewHolder(inflater.inflate(R.layout.item_house, parent, false))
+        return ItemViewHolder(inflater.inflate(R.layout.item_bank, parent, false))
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

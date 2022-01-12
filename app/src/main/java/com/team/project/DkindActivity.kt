@@ -33,7 +33,7 @@ class DkindActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_category)
+        setContentView(R.layout.activity_choose_dkind)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_choose_dkind)
         var genderage = intent.getStringExtra("genage")
         var itemValue= intent.getStringExtra("itemprice")

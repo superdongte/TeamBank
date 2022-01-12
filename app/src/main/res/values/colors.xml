@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#DF0101</color>
+    <color name="mint">#3BD0BB</color>
+    <color name="test">#0BE462</color>
+    <color name="tes">#3BFF00</color>
+    <color name="t">#B1FAF9</color>
 </resources>

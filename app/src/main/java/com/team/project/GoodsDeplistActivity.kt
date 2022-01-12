@@ -17,14 +17,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class GoodsDeplistActivity : AppCompatActivity(){
     private lateinit var binding : ActivityGoodsdeplistBinding
-    private lateinit var retrofit: Retrofit
-    lateinit var myApi : InstallmentService
     var itemPrice: Int = 0
     var dkind: String = ""
     var genage: String = ""
-    //    var itemName:String =""
+    var itemName:String = ""
     private val goodsrecyclerAdapter = GoodsListAdapter(itemClicked = {
         itemPrice= it.itemprice
+        binding.itemName.text=it.itemname
+        binding.itemPrice.text=it.itemprice.toString()
         getFromDepoistAPI()
     })
     private val itemrecyclerView: RecyclerView by lazy{
@@ -40,8 +40,7 @@ class GoodsDeplistActivity : AppCompatActivity(){
     })
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_installment)
-
+        setContentView(R.layout.activity_goodsdeplist)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_goodsdeplist)
 
         depositrecyclerView.adapter = depositrecyclerAdapter
@@ -51,27 +50,36 @@ class GoodsDeplistActivity : AppCompatActivity(){
 
         binding.goodsPic1.setOnClickListener(View.OnClickListener {
             Log.d("MyTag", "click goodsPic1")
-            val intent = Intent(this, InstallmentActivity::class.java)
             itemPrice=4000000
+            itemName="UHD TV"
+            binding.itemName.text=itemName
+            binding.itemPrice.text=itemPrice.toString()
             getFromDepoistAPI()
         })
         binding.goodsPic2.setOnClickListener(View.OnClickListener {
             Log.d("MyTag", "click goodsPic2")
-            val intent = Intent(this, InstallmentActivity::class.java)
             itemPrice=5000000
+            itemName="여행"
+            binding.itemName.text=itemName
+            binding.itemPrice.text=itemPrice.toString()
             getFromDepoistAPI()
         })
         binding.goodsPic3.setOnClickListener(View.OnClickListener {
             Log.d("MyTag", "click goodsPic3")
-            val intent = Intent(this, InstallmentActivity::class.java)
             itemPrice=3000000
+            itemName="노트북"
+            binding.itemName.text=itemName
+            binding.itemPrice.text=itemPrice.toString()
             getFromDepoistAPI()
         })
 
         dkind = intent.getStringExtra("dkind")!!
         itemPrice = intent.getStringExtra("itemprice")?.toInt()!!
         genage = intent.getStringExtra("genage")!!
-//        itemName = intent.getStringExtra("name")?.toString()!!
+//        itemName= intent.getStringExtra("itname")!!
+//        binding.itemName.text= itemName
+//        binding.itemPrice.text = itemPrice.toString()
+
 
         getFromGoodsAPI()
         getFromDepoistAPI()
