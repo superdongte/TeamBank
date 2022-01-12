@@ -42,6 +42,47 @@
                 app:layout_constraintVertical_bias="0">
 
             </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/itemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="목돈 마련"
+                    android:textColor="#ffff0000"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/katuri">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/installText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="의 평균 금액은 "
+                    android:textSize="20sp"
+                    android:fontFamily="@font/katuri">
+                </TextView>
+                <TextView
+                    android:id="@+id/itemPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#ffff0000"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/katuri">
+                </TextView>
+                <TextView
+                    android:id="@+id/installText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="입니다."
+                    android:textSize="20sp"
+                    android:fontFamily="@font/katuri">
+                </TextView>
+            </LinearLayout>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
